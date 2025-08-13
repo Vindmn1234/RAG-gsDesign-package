@@ -1,0 +1,39 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath, amssymb}
+\usepackage{enumitem}
+
+\begin{document}
+
+The following description of the BOIN methodology is based on information from Liu and Yuan (2015) while also incorporating the changes and additional information in the revised derivation provided by the Applicant in response to our information requests. This description summarizes the Applicant’s revised design and derivation. As noted above, the revised design and derivation has been iteratively refined during this review, and the summary that follows is based on the most refined version of the BOIN methodology presented to us.
+
+Assume that a total of $J$ prespecified doses are under investigation in the study and let $\phi$ denote the target toxicity probability specified by physicians. It is assumed that the dose levels are ordered such that dose level $j = 1$ represents the lowest dose under investigation in the study, dose level $j = 2$ represents the second lowest dose under investigation in the study, and so on with dose level $j = J$ representing the highest dose under investigation in the study. At dose level $j$, let $n_j$ denote the total number of patients treated, $m_j$ denote the number of patients who had dose limiting toxicity (DLT), and define $\hat{p}_j = m_j / n_j$. Consider a class of designs as follows.
+
+\begin{enumerate}
+  \item Patients in the first cohort are treated at the lowest dose level.
+
+  \item Let $j$ denote the current dose level. Assign a dose to the next cohort of patients as follows:
+  \begin{itemize}
+    \item If $\hat{p}_j \leq \lambda_{1j}(n_j, \phi)$, then escalate the dose level to $j + 1$ (in the case $j = J$, if $\hat{p}_j \leq \lambda_{1j}(n_j, \phi)$, then the dose remains at level $j = J$).
+    
+    \item If $\hat{p}_j > \lambda_{2j}(n_j, \phi)$, then de-escalate the dose to level $j - 1$ (in the case $j = 1$, if $\hat{p}_j > \lambda_{2j}(n_j, \phi)$, then the dose remains at level $j = 1$).
+    
+    \item Otherwise, i.e., $\lambda_{1j}(n_j, \phi) < \hat{p}_j \leq \lambda_{2j}(n_j, \phi)$, then retain the same dose level, which is level $j$.
+  \end{itemize}
+  
+  Here $\lambda_{1j}(n_j, \phi)$ and $\lambda_{2j}(n_j, \phi)$ are functions of $j$, $n_j$ and $\phi$ such that $\lambda_{1j}(n_j, \phi) \leq \lambda_{2j}(n_j, \phi)$.
+
+  \item Repeat step 2 until the maximum sample size is reached or the trial is terminated due to excessive toxicity.
+\end{enumerate}
+
+\textbf{Reviewer’s Comment.} The design presented above, which is the revised version, differs from the design in Liu and Yuan (2015, page 509) in the following aspects.
+
+\begin{itemize}
+  \item The condition for de-escalating the dose originally was $\hat{p}_j \geq \lambda_{2j}(n_j, \phi)$, but has been changed to $\hat{p}_j > \lambda_{2j}(n_j, \phi)$.
+
+  \item The condition for retaining the same dose level originally was $\lambda_{1j}(n_j, \phi) < \hat{p}_j < \lambda_{2j}(n_j, \phi)$, but has been changed to $\lambda_{1j}(n_j, \phi) < \hat{p}_j \leq \lambda_{2j}(n_j, \phi)$.
+
+  \item Originally it was stated that $0 \leq \lambda_{1j}(n_j, \phi) < \lambda_{2j}(n_j, \phi) \leq 1$; however, this condition has been replaced by the condition $\lambda_{1j}(n_j, \phi) \leq \lambda_{2j}(n_j, \phi)$.
+\end{itemize}
+
+
+\end{document}

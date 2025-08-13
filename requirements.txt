@@ -1,0 +1,27 @@
+# fastapi==0.95.0
+# uvicorn[standard]==0.22.0
+# pandas==1.5.3
+# numpy<2,>=1.23.5
+# openai==0.27.8
+# langchain==0.0.190
+# langchain-community==0.0.27
+# faiss-cpu==1.7.3
+# python-multipart==0.0.5
+
+# Python >= 3.9
+fastapi==0.111.0
+uvicorn[standard]==0.30.1
+pandas==1.5.3
+numpy<2,>=1.23.5
+
+# OpenAI + LangChain (modern split)
+openai>=1.30.0
+langchain>=0.2.1
+langchain-community>=0.2.1
+langchain-openai>=0.1.7
+
+# Vector store + PDF
+faiss-cpu==1.7.3
+pymupdf>=1.23.0   # provides `fitz`
+
+python-multipart==0.0.9

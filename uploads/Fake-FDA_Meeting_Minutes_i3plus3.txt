@@ -1,0 +1,34 @@
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       Type B Meeting Minutes
+Sponsor: [Redacted Biopharma Inc.]
+Product: [Investigational Oncology Agent XYZ-101]
+IND Number: [#####]
+Date of Meeting: June 12, 2025
+Meeting Type: Type B (Pre-IND)
+Meeting Format: Teleconference
+FDA Division: Division of Oncology 1 (DO1), Office of Oncologic Diseases, CDER
+Subject: Use of i3+3 Design for Phase 1 Dose-Escalation Study
+Discussion Point #3:
+Sponsor proposal to use the i3+3 design with equivalence interval (0.25, 0.35) for determining dose
+escalation and de-escalation decisions in the proposed Phase 1 first-in-human trial.
+FDA Feedback:
+The FDA appreciates the sponsor’s effort to adopt a model-assisted design with a structured decision
+framework, such as the i3+3 design. However, the Agency does not agree with the proposed equivalence
+interval of (0.25, 0.35), as it raises concerns regarding alignment with acceptable safety standards for
+first-in-human oncology trials.
+Specifically, FDA considers an upper boundary of 0.35 for the equivalence interval to be too permissive,
+especially when the target toxicity rate is 0.30. Such an interval would tolerate escalation or dose
+retention decisions at estimated DLT rates up to 35%, which exceeds conventional Phase 1 tolerability
+expectations.
+The Agency recommends that the upper bound of the equivalence interval should be set below 0.33,
+consistent with the maximum acceptable DLT probability in most early-phase oncology settings. For
+example, the FDA would not object to an interval such as (0.25, 0.30) or (0.25, 0.32), which provides a
+more conservative framework to safeguard patient safety while still permitting escalation when appropriate.
+The sponsor is encouraged to revise the equivalence interval accordingly and resubmit the updated
+Statistical Analysis Plan (SAP) for further review. The FDA also reminds the sponsor that equivalence
+intervals should reflect clinical judgment and consensus on tolerability, not merely statistical convenience.
+Action Items:
+- Sponsor to revise i3+3 design to reflect a more appropriate equivalence interval (e.g., (0.25, 0.30))
+- Sponsor to provide revised SAP and decision algorithm logic table in the IND submission
+- FDA to review updated submission upon receipt
+These minutes reflect FDA’s understanding of the meeting discussions and do not constitute final
+regulatory approval.
