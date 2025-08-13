@@ -1,39 +1,57 @@
-# LangChain News Processing API ![](static/favicon.ico)
+# RAG-Based Code Modification Tool ![](static/favicon.ico)
 
-## Introduction
+## Overview
+This project implements a Retrieval-Augmented Generation (RAG) workflow for **understanding, retrieving, and modifying complex R package codebases**.  
+It is optimized for multi-file, dependency-heavy R packages such as `gsDesign2`, enabling structured code understanding and precise modifications.
 
-Welcome to the **LangChain News Processing API** – a cutting-edge, fast, and interactive API built using FastAPI and LangChain. This API leverages Retrieval-Augmented Generation (RAG) techniques to deliver real-time insights and summaries from a curated dataset of news articles.
+The system:
+- Retrieves relevant code chunks and descriptions from an indexed knowledge base.
+- Incorporates **external user-provided sources** (e.g., PDFs) for additional context.
+- Supports section-based rendering for improved readability.
+- Provides a clean HTML interface for querying and viewing results.
 
-### Key Features
+### 1. **Knowledge Base Construction**
 
-- **Smart Retrieval:**  
-  Perform an advanced similarity search among news articles. This feature can optionally filter results by date if a specific date is mentioned in the query, and uses a powerful language model to rank the most relevant news items.
+We build a structured knowledge base from each R file in the target package, storing:
+- **File name**
+- **Full code**
+- **Detailed natural language description** (line-by-line)
+- **Dependencies** (files/functions it relies on)
+- **Function list**
+- **Notes and labels** for categorization
 
-- **Insight Retrieval:**  
-  Obtain concise, analytical summaries of trends and key takeaways from the news articles without referencing individual sources. This provides a high-level overview of market sentiment and emerging trends.
+Embedding-based vector search enables semantic retrieval, and dependency-aware retrieval ensures that when one file is retrieved, all its related dependency files are also included.
 
-### Data Source
+#### **Data Source**
+Our primary data source is the [`gsDesign2` R package](https://merck.github.io/gsDesign2/index.html), developed by Merck.  
+`gsDesign2` is a statistical package for designing and analyzing clinical trials—especially **group sequential** and **non-proportional hazards** designs.  
+It provides tools for:
+- Computing sample sizes and power under various trial designs
+- Creating weighted log-rank (WLR) tests for survival analysis
+- Simulating trial operating characteristics
+- Supporting fixed-sample designs, interim analyses, and adaptive designs
 
-The API processes data from CSV files that include essential fields such as the news publication date, the full text of the news article, and precomputed embeddings. Data is sourced from leading publications including:
-- **The Wall Street Journal**
-- **Bloomberg**
-- **Financial Post**
-- **The Verge**
+Because `gsDesign2` contains **complex interdependent R scripts**, it is an ideal case study for our retrieval and modification pipeline.
 
-*(Data used in this API covers the period from January to March in 2025.)*
 
-### How It Works
+### 2. **Flexible Retrieval Pipeline**
+- **Primary search:** Embedding similarity using `text-embedding-3-large`.
+- **Dependency expansion:** Automatically retrieves files listed in the `Dependencies` column for relevant results.
+- **Optional external input:** If the user uploads a PDF, content from it is also incorporated into the LLM context.
 
-1. **Data Processing:**  
-   The API reads a CSV file containing news articles, NER tags and GPT embeddings. It then creates LangChain Document objects and builds a FAISS vector store for efficient similarity search.
+### 3. **Response Rendering**
+- Sections are clearly separated with `[[SECTION]] ... [[/SECTION]]` markers for accurate parsing.
+- Original LLM output can be optionally printed for debugging.
+- HTML interface uses styled **cards** for each section:
+  - Summary
+  - Dependency Impact
+  - Code Changes
+  - Additional Notes
 
-2. **Query Handling:**  
-   Two types of queries are supported:
-   - **Smart Retrieval:** Returns the most relevant news articles based on similarity search and LLM-based ranking.
-   - **Insight Retrieval:** Summarizes the key trends and insights derived from the news articles.
-   
-3. **Interactive Interface:**  
-   A simple web interface is provided, featuring a detailed welcome page and a query interface. This interface enables users to select the query type, enter their query, and view results—all styled for a user-friendly experience.
+### 4. **User Interface**
+- **FastAPI** backend with `/interface` endpoint for the web view.
+- Styled HTML + CSS with adjustable width for better readability.
+- Real-time query processing and rendering.
 
 ---
 
