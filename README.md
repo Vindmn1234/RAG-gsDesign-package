@@ -34,8 +34,8 @@ It provides tools for:
 Because `gsDesign2` contains **complex interdependent R scripts**, it is an ideal case study for our retrieval and modification pipeline.
 
 For reference:
-- **User query & agent response history** is stored in `./service/conversations.jsonl`
-- **User's file upload history** can be found under `./upload`
+- **User query & agent response history** is stored in [./service/conversations.jsonl](./service/conversations.jsonl)  
+- **User's file upload history** can be found under [./upload](./upload)
 
 ### 2. **Flexible Retrieval Pipeline**
 - **Primary search:** Embedding similarity using `text-embedding-3-large`.
